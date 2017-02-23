@@ -1,0 +1,21 @@
+extends layout
+
+block head
+  style.
+    .col { margin-top: 16px;}
+
+block content
+  div.container
+    div.row
+      div.col.col-sm-12
+        h1 nodejs-express-boilerplate
+        h6 Version: #{version}
+        p Lotta work for a simple webpage...
+        i.fa.fa-meh-o.fw.fa-5x
+
+block foot
+  - if (showmodal == "true") {
+  script.
+    $('#myModal').modal('show');
+  - }
+  script(src='/js/template.js')

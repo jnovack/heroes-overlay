@@ -1,0 +1,9 @@
+mixin select-option(name)
+  option(value=name)&attributes(attributes)= name
+
+mixin example-select(id,name)
+  label(for=id,class='control-label')= name
+  select(data-for=id,id=id,type='select-one').form-control
+    +select-option("Please Select")(selected,disabled)
+    +select-option("true")
+    +select-option("false")

@@ -1,0 +1,25 @@
+include mixins.pug
+doctype html
+html
+  head
+    title= title
+    link(href="//fonts.googleapis.com/css?family=Exo+2:400,500,700", rel="stylesheet", type="text/css")
+    link(href="/cdn/bootstrap/css/bootstrap.min.css", rel="stylesheet", type="text/css")
+    link(href='/cdn/font-awesome/css/font-awesome.min.css',rel='stylesheet', type="text/css")
+    link(href="/cdn/animate/animate.css", rel="stylesheet", type="text/css")
+    link(href='/css/base.css',rel='stylesheet', type="text/css")
+    block head
+
+  body
+    include modal-created.pug
+
+    block content
+
+    // JQuery
+    script(src="/cdn/jquery/jquery.min.js")
+    // Bootstrap
+    script(src='/cdn/bootstrap/js/bootstrap.min.js')
+    // Socket.IO
+    script(src="/socket.io/socket.io.js")
+
+    block foot

@@ -1,0 +1,18 @@
+div(id="myModal",tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true").modal.fade
+  div(style='z-index: 2000').modal-dialog
+    div.modal-content
+      div.modal-header
+        button(type="button",data-dismiss="modal",aria-label="Close").close
+          span(aria-hidden="true") &times;
+        h4(id="myModalLabel").modal-title Welcome to myModal
+      div.modal-body
+        b This is a modal for funsies.
+        hr
+        p To get started:
+        ol
+          li 1. Click the "Close" button.
+          li 2. ???
+          li 3. Profit!
+        i Some helpful hint text.
+      div.modal-footer
+        button(type="button",data-dismiss="modal").btn.btn-default Close
