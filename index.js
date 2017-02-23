@@ -51,4 +51,4 @@ myApp.webserver.initialize();
 /***
  *  Initialize the socket.io namespaces
  ***/
-require("./modules/sockets/template")(myApp);
+require("./modules/sockets/overlay")(myApp);

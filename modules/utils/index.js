@@ -1,6 +1,7 @@
 module.exports = function(myApp){
     var utils = {},
         path = require('path'),
+        shortid = require('shortid'),
         fs = require("fs");
 
     utils.stringify = require('json-stringify-safe');
@@ -9,6 +10,17 @@ module.exports = function(myApp){
     utils.console = {};
 
     utils.noop = function(){};
+
+    utils.shortid = function(){
+        return shortid.generate();
+    };
+
+    utils.isShortId = function(id) {
+        if (!id || typeof id !== 'string' || id.length < 6 || id.length > 14 ) {
+            return false;
+        }
+        return shortid.isValid(id);
+    };
 
     utils.handlePromiseError = function(error){
         this.console.logLine();
