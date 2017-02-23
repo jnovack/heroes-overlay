@@ -1,6 +1,6 @@
 {
-  "name": "nodejs-express-boilerplate",
-  "version": "1.0.2",
+  "name": "heroes-overlay",
+  "version": "1.0.0",
   "author": "Justin J. Novack <jnovack@gmail.com>",
   "description": "Basic structure of a node.js web application with Express.",
   "scripts": {
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jnovack/nodejs-express-boilerplate.git"
+    "url": "git+https://github.com/jnovack/heroes-overlay.git"
   },
   "bugs": {
-    "url": "https://github.com/jnovack/nodejs-express-boilerplate/issues"
+    "url": "https://github.com/jnovack/heroes-overlay/issues"
   },
   "license": "MIT",
   "dependencies": {
@@ -37,6 +37,6 @@
     "grunt-nodemon": "latest",
     "grunt-simple-mocha": "latest"
   },
-  "homepage": "https://github.com/jnovack/nodejs-express-boilerplate#readme",
+  "homepage": "https://github.com/jnovack/heroes-overlay#readme",
   "main": "index.js"
 }
