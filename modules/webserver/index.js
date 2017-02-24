@@ -24,7 +24,7 @@ module.exports = function(myApp){
         var session = require('express-session');
         var flash = require('connect-flash');
 
-        app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }));
+        app.use(session({ secret: 'keyboard cat', cookie: { maxAge: null }, resave: true, saveUninitialized: true }));
         app.use(bodyParser.urlencoded({ extended: true }));     // parse application/x-www-form-urlencoded
         app.use(bodyParser.json());                             // parse application/json
         app.use(cookieParser('banana hammock'));
