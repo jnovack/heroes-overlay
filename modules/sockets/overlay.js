@@ -1,6 +1,6 @@
 module.exports = function(myApp) {
     var nsp_overlay = myApp.webserver.io.of('/overlay');
-    var debug = require('debug')('module:sockets:audit');
+    var debug = require('debug')('module:sockets:overlay');
 
     nsp_overlay.on('connection', function(socket){
         debug("connection on socket.io/overlay for socket " + socket.id);

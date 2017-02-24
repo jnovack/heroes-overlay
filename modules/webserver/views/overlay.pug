@@ -2,19 +2,22 @@ extends layout
 
 block head
   title Overlay
-  link(href="/stylesheets/base.css", rel="stylesheet")
-  link(href="/stylesheets/divimage.css", rel="stylesheet")
-  script(src='/javascripts/functions.js')
+  link(href="/css/base.css", rel="stylesheet")
+  style.
+    #blueteamname { position: absolute; left: 198px; top: 116px; width: 336px; height: 44px; font-weight: 700; text-shadow: 0 0 1em #333333; text-transform: uppercase; color: #ffffff; font-size: 2em; text-align: center; }
+    #redteamname { position: absolute; left: 1382px; top: 116px; width: 336px; height: 44px; font-weight: 700; text-shadow: 0 0 1em #333333; text-transform: uppercase; color: #ffffff; font-size: 2em; text-align: center; }
 
 block footer
-  script(src="/javascripts/overlay.js")
-  link(href="/stylesheets/themes/default.css", rel="stylesheet")
-  script(src="/javascripts/overlay-client.js")
-  link(href="/stylesheets/themes/clean.css", rel="stylesheet")
+  script.
+    var opt_id = '#{id}';
+  script(src='/js/functions.js')
+  script(src="/js/overlay.js")
+  script(src="/js/overlay-client.js")
 
 block content
-  div(id='wrapper').container.theme-default
+  div(id='wide-screen').container.observer
     div(id='tvsafe')
-      div.row
-        div.col-sm-12.text-center
-          div(id='title').text.title Draft
+      div(id='blueteamname').text
+        | Potatoes
+      div(id='redteamname').text
+        | Derpies

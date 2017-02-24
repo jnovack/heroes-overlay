@@ -1,13 +1,13 @@
 extends layout
 
 block head
-    script(src='/javascripts/functions.js')
 
 block footer
   script.
     var opt_id = '#{id}';
-  script(src="/javascripts/overlay.js")
-  script(src="/javascripts/overlay-admin.js")
+  script(src='/js/functions.js')
+  script(src="/js/overlay.js")
+  script(src="/js/overlay-admin.js")
 
 block content
   div.container

@@ -14,6 +14,12 @@ module.exports = function(app, myApp, express){
         res.render('index.pug', { version: myApp.package.version, showmodal: req.flash('showmodal')} );
     });
 
+    router.get('/overlay/', function(req, res, next) {
+        id = myApp.utils.shortid();
+        req.flash('created', true);
+        res.redirect('/overlay/'+id+'/admin' );
+    });
+
     router.get('/overlay/:id', checkShortId, function(req, res, next) {
         res.render('overlay.pug', { id: req.params.id, title: "Heroes of the Storm Overlay" } );
     });
