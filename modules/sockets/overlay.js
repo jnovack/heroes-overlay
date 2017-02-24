@@ -11,28 +11,41 @@ module.exports = function(myApp) {
         };
 
         socket.on('join', function(data) {
-            // Slight obfuscation for clients
-            if (typeof data === "string") { data = { room: data }; }
+            // Ensure valid structure
+            if ((typeof data !== "object") || (typeof data.room === "undefined") || (typeof data.key === "undefined")) {
+                return;
+            }
 
-            if (socket.custom.room) {
+            // Validate data types
+            if ( (myApp.utils.isHash(data.room) == null) || (myApp.utils.isUUID(data.key) == null) ) {
+                return;
+            }
+
+            // If you are already in a room, leave it.
+            if (socket.custom.room !== null) {
               debug("socket " + socket.id + " left " + socket.custom.room);
               socket.leave(socket.custom.room);
             }
 
-            socket.join(data.room);
-            socket.custom.room = data.room;
+            myApp.storage.get(data.room, function(err, json){
+                if (err) {
+                    debug("socket " + socket.id + " could not join " + data.room);
+                    socket.emit('room-unavailable', true);
+                    return;
+                } else {
+                    socket.join(data.room);
+                    socket.custom.room = data.room;
 
-            debug("socket " + socket.id + " joined " + socket.custom.room);
-            socket.emit('joined', socket.custom.room);
+                    debug("socket " + socket.id + " joined " + socket.custom.room);
+                    socket.emit('joined', socket.custom.room);
 
-            if ((typeof data === "object") && (data.admin === true)) {
-                debug("socket " + socket.id + " in " + socket.custom.room + " is admin");
-                socket.custom.isAdmin = true;
-            }
-
-            myApp.storage.get(socket.custom.room, function(err, json) {
-                if (!err) {
                     json = myApp.utils.tryJSONParse(json);            // TODO Don't trust parsing.
+
+                    if (json.admin === data.key) {
+                        debug("socket " + socket.id + " in " + socket.custom.room + " is admin");
+                        socket.custom.isAdmin = true;
+                    }
+
                     debug("overlay: onJoin get", json);
                     if (json !== null) {
                         if (typeof json.setting !== "undefined") {

@@ -11,5 +11,5 @@ socket.on('joined', function(data){
 
 socket.on('connect', function() {
     console.log("socket.io - connected");
-    socket.emit('join', 'overlay:'+opt_id);
+    socket.emit('join', { room: room, key: key });
 });

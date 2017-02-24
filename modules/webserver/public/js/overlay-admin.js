@@ -1,12 +1,7 @@
-socket.on('connect', function() {
-    socket.emit('join', { room: 'overlay:'+opt_id, admin: true });
-});
-
 function send(message) {
     socket.emit('broadcast', message);
     console.log(message);
 }
-
 
 /*
  ***** Master Buttons *****
