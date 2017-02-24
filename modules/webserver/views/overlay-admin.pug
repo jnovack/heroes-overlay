@@ -18,6 +18,15 @@ block content
       div.col.col-sm-12
         h1 /overlay Admin
 
+    - if (created == "true") {
+      div.row
+        div.col.col-sm-12
+          h5 Your OBS Browser Link is:&nbsp;
+            script.
+              var url = window.location.href.substring(0,window.location.href.lastIndexOf("/"));
+              document.write("<a href='" + url + "'><strong>" + url + "</strong></a>");
+    - }
+
     div.row
       div.col-md-5
         div.control-group
@@ -28,7 +37,7 @@ block content
         div.control-group
           label(for='swap',class='control-label') Swap
           div.controls
-            button(data-group='value',type='text',id='swap',name='swap',class='form-control').btn.btn-checkbox
+            a(href="#",class="btn btn-success",id="swapButton")
               i.fa.fa-random
       div.col-md-5
         div.control-group

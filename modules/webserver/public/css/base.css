@@ -1,8 +1,10 @@
 * {margin: 0px; padding: 0px; font-weight: normal; list-style-type: none;}
 
-#wide-screen { width: 1920px; height: 1080px; overflow: hidden; float: left; background-color: rgb(0,0,0); }
+#wide-screen { width: 1920px; height: 1080px; overflow: hidden; float: left; background-color: rgba(0,0,0,0); }
 
 #tv-safe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; }
+
+div.observer { background: url('/img/observer.png'); }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; height: 80px;}
 
