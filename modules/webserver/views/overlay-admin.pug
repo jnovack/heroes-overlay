@@ -1,0 +1,44 @@
+extends layout
+
+block head
+    script(src='/javascripts/functions.js')
+
+block footer
+  script.
+    var opt_id = '#{id}';
+  script(src="/javascripts/overlay.js")
+  script(src="/javascripts/overlay-admin.js")
+
+block content
+  div.container
+    style.
+      .row { margin-top: 24px;}
+
+    div.row
+      div.col.col-sm-12
+        h1 /overlay Admin
+
+    div.row
+      div.col-md-5
+        div.control-group
+          label(for='blueteamname',class='control-label') Blue Team Name
+          div.controls
+            input(data-group="text",type='text',id='blueteamname',name='blueteamname',placeholder='Potatoes',class='form-control')
+      div.col-md-2
+        div.control-group
+          label(for='swap',class='control-label') Swap
+          div.controls
+            button(data-group='value',type='text',id='swap',name='swap',class='form-control').btn.btn-checkbox
+              i.fa.fa-random
+      div.col-md-5
+        div.control-group
+          label(for='redteamname',class='control-label') Red Team Name
+          div.controls
+            input(data-group="text",type='text',id='redteamname',name='redteamname',placeholder='Derpies',class='form-control')
+
+    div.row
+      div.col-lg-12
+        a(href="#",class="btn btn-primary",id="reloadButton")
+          i.fa.fa-refresh
+          | Reload
+    hr
