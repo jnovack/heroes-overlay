@@ -41,6 +41,7 @@ $("input[data-group='text']").blur(function() {
 /*
  ***** Receiving *****
  */
+ // TODO - Not receiving properly.
 socket.on('setting', function(data) {
     console.log(data);
 
