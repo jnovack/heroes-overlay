@@ -2,8 +2,10 @@ module.exports = function(myApp){
     var utils = {},
         path = require('path'),
         shortid = require('shortid'),
-        fs = require("fs");
+        fs = require("fs"),
+        crypto = require('crypto');
 
+    utils.uuid = require('node-uuid');
     utils.stringify = require('json-stringify-safe');
     utils.memcache = require('expire-memory');
 
@@ -20,6 +22,26 @@ module.exports = function(myApp){
             return false;
         }
         return shortid.isValid(id);
+    };
+
+    utils.isUUID = function(uuid) {
+        if (!uuid || typeof uuid !== 'string' || uuid.length !== 36 ) {
+            return false;
+        }
+        return uuid.match("[a-f0-9\-]{36}");
+    }
+
+    utils.isHash = function(hash) {
+        if (!hash || typeof hash !== 'string' || hash.length !== 64 ) {
+            return false;
+        }
+        return hash.match("[a-fA-F0-9]{64}");
+    };
+
+    utils.createHash = function(client, admin) {
+        return crypto.createHmac('sha256', client)
+                     .update(admin)
+                     .digest('hex');
     };
 
     utils.handlePromiseError = function(error){
