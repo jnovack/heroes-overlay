@@ -68,7 +68,8 @@ module.exports = function(myApp) {
         debug("makeGetCallback", id, message);
         var passthru = { id: id, data: message };
         return function(err, json) {
-            json = myApp.utils.tryJSONParse(message);    // TODO Don't trust parsing.
+            if (err === true) { json = {}; }            // If nothing was returned, set it to an empty object.
+            json = myApp.utils.tryJSONParse(json);      // TODO Don't trust parsing.
             if (typeof json[message.event] == "undefined") {
                 json[message.event] = {};
             }

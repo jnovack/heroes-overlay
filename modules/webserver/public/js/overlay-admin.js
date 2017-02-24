@@ -41,7 +41,7 @@ $("input[data-group='text']").blur(function() {
 /*
  ***** Receiving *****
  */
- socket.on('setting', function(data) {
+socket.on('setting', function(data) {
     console.log(data);
 
     // Admin helper functions
