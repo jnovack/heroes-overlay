@@ -19,14 +19,18 @@ block content
       div.col.col-sm-12
         h1 /overlay Admin
 
-    - if (created == "true") {
-      div.row
-        div.col.col-sm-12
-          h5 Your OBS Browser Link is:&nbsp;
-            script.
-              var url = window.location.href.substring(0,window.location.href.lastIndexOf("/"));
-              document.write("<a href='" + url + "'><strong>" + url + "</strong></a>");
-    - }
+    div(id='room-unavailable',style="display: none;").row
+      div.col.col-sm-12
+        div(role='alert').alert.alert-danger.fade.in
+          strong The connection with the server has disconnected, please create a new overlay.
+
+    div.row
+      div.col.col-sm-12
+        div(role='alert').alert.alert-success.fade.in
+          strong Your OBS Browser Link is:&nbsp;
+          script.
+            var url = window.location.href.substring(0,window.location.href.lastIndexOf("/"));
+            document.write("<a href='" + url + "'><strong>" + url + "</strong></a>");
 
     div.row
       div.col-md-5
