@@ -29,7 +29,7 @@ module.exports = function(myApp){
             return false;
         }
         return uuid.match("[a-f0-9\-]{36}");
-    }
+    };
 
     utils.isHash = function(hash) {
         if (!hash || typeof hash !== 'string' || hash.length !== 64 ) {
