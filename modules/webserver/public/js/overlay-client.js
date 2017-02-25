@@ -9,11 +9,18 @@ socket.on('setting', function(data) {
     }
 });
 
-$(document).ready(function(){
 
-// Initialize content
-initContent();
-    function initContent(){
-        $('html, body').css('cursor','none');
-    };
+socket.on('command', function(data){
+	if (data.action === "reload") {
+	    console.log("reloading...");
+	    location.reload();
+	}
+});
+
+$(document).ready(function(){
+	// Initialize content
+	initContent();
+	function initContent(){
+	    $('html, body').css('cursor','none');
+	};
 });
