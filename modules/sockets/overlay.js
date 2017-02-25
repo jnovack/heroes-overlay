@@ -12,12 +12,12 @@ module.exports = function(myApp) {
 
         socket.on('join', function(data) {
             // Ensure valid structure
-            if ((typeof data !== "object") || (typeof data.room === "undefined") || (typeof data.key === "undefined")) {
+            if ((typeof data !== "object") || (typeof data.room === "undefined")) {
                 return;
             }
 
             // Validate data types
-            if ( (myApp.utils.isHash(data.room) == null) || (myApp.utils.isUUID(data.key) == null) ) {
+            if (myApp.utils.isHash(data.room) === null) {
                 return;
             }
 
@@ -41,7 +41,7 @@ module.exports = function(myApp) {
 
                     json = myApp.utils.tryJSONParse(json);            // TODO Don't trust parsing.
 
-                    if (json.admin === data.key) {
+                    if ((typeof data.key !== "undefined") && (myApp.utils.isUUID(data.key) !== null) && json.admin === data.key) {
                         debug("socket " + socket.id + " in " + socket.custom.room + " is admin");
                         socket.custom.isAdmin = true;
                     }

@@ -29,10 +29,6 @@ module.exports = function(app, myApp, express){
     /******************/
 
     router.get('/', function(req, res, next) {
-        res.render('index.pug', { version: myApp.package.version, showmodal: req.flash('showmodal')} );
-    });
-
-    router.get('/overlay/', function(req, res, next) {
         var client = myApp.utils.uuid.v4();
         var admin = myApp.utils.uuid.v4();
         var hash = myApp.utils.createHash(client, admin);
@@ -42,16 +38,30 @@ module.exports = function(app, myApp, express){
         req.session.keys = keys;
         req.session.admin = admin;
 
-        res.redirect('/overlay/'+hash+'/admin' );
+        res.render('overlay-admin.pug', { room: hash, title: 'Heroes of the Storm Overlay', key: req.session.keys.admin });
+        // res.render('index.pug', { version: myApp.package.version, showmodal: req.flash('showmodal')} );
     });
 
-    router.get('/overlay/:hash', checkHash, checkSession, function(req, res, next) {
+    // router.get('/overlay/', function(req, res, next) {
+    //     var client = myApp.utils.uuid.v4();
+    //     var admin = myApp.utils.uuid.v4();
+    //     var hash = myApp.utils.createHash(client, admin);
+    //     var keys = { client: client, admin: admin};
+
+    //     myApp.storage.set(hash, JSON.stringify({ client: client, admin: admin}));
+    //     req.session.keys = keys;
+    //     req.session.admin = admin;
+
+    //     res.redirect('/overlay/'+hash+'/admin' );
+    // });
+
+    router.get('/:hash', checkHash, checkSession, function(req, res, next) {
         res.render('overlay.pug', { room: req.params.hash, title: "Heroes of the Storm Overlay", key: req.session.keys.client });
     });
 
-    router.get('/overlay/:hash/admin', checkHash, checkSession, checkAdmin, function(req, res, next) {
-        res.render('overlay-admin.pug', { room: req.params.hash, title: 'Overylay Admin', key: req.session.keys.admin });
-    });
+    // router.get('/overlay/:hash/admin', checkHash, checkSession, checkAdmin, function(req, res, next) {
+    //     res.render('overlay-admin.pug', { room: req.params.hash, title: 'Overylay Admin', key: req.session.keys.admin });
+    // });
 
     return router;
 };
