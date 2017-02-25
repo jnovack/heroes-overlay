@@ -1,11 +1,14 @@
 extends layout
 
 block head
-
-block footer
   script.
     var room = '#{room}';
     var key = '#{key}';
+    var url = (window.location.href.lastIndexOf("/") === 0 ? window.location.href.substring(0,window.location.href.length) : window.location.href.substring(0,window.location.href.lastIndexOf("/")));
+
+block footer
+  script.
+    $('#obs-link').attr("href", url + "/" + room).html("<strong>" + url + "/" + room + "</strong>");
   script(src='/js/functions.js')
   script(src="/js/overlay.js")
   script(src="/js/overlay-admin.js")
@@ -17,20 +20,17 @@ block content
 
     div.row
       div.col.col-sm-12
-        h1 /overlay Admin
+        h1 Heroes Overlay
 
-    div(id='room-unavailable',style="display: none;").row
+    div(id='alert-room',style="display: none;").row
       div.col.col-sm-12
         div(role='alert').alert.alert-danger.fade.in
-          strong The connection with the server has disconnected, please create a new overlay.
+          strong The connection with the server has disconnected, please #[a(href='.') create a new overlay].
 
     div.row
-      div.col.col-sm-12
+      div(id='alert-link').col.col-sm-12
         div(role='alert').alert.alert-success.fade.in
-          strong Your OBS Browser Link is:&nbsp;
-          script.
-            var url = window.location.href.substring(0,window.location.href.lastIndexOf("/"));
-            document.write("<a href='" + url + "'><strong>" + url + "</strong></a>");
+          strong Your OBS Browser Link is: #[a(id='obs-link',target='_blank') /]
 
     div.row
       div.col-md-5

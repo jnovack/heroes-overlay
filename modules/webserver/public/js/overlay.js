@@ -10,7 +10,8 @@ socket.on('connect', function() {
 });
 
 function roomUnavailable() {
-    $('#room-unavailable').fadeIn();
+    $('#alert-room').fadeIn();
+    $('#alert-link').fadeOut();
 }
 
 socket.on('disconnect', roomUnavailable);
