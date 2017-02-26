@@ -17,3 +17,11 @@ function roomUnavailable() {
 socket.on('disconnect', roomUnavailable);
 socket.on('error', roomUnavailable);
 socket.on('room-unavailable', roomUnavailable);
+
+$(document).ready(function(){
+	// Initialize content
+	initContent();
+	function initContent(){
+	    $('.numRounds').hide();
+	};
+});

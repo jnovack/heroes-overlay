@@ -33,30 +33,91 @@ block content
         div(role='alert').alert.alert-success.fade.in
           strong Your OBS Browser Link is: #[a(id='obs-link',target='_blank') /]
 
+
     div.row
-      div.col-md-5
+      div.col-md-2
+        button(id='visibilityButton',type='button',data-toggle='button',aria-pressed='true',auto-complete='false',style='width:100%').btn.btn-warning.active
+          i(id='visibilityButtonIcon').fa.fa-toggle-on
+          | Visbility
+      div.col-md-2
+      div.col-md-2
+      div.col-md-2
+        div.control-group
+          div.controls
+            select(id='containerBackground',class="selectpicker", data-width="100%")
+              option(value='transparent') Transparent
+              option(value='draft') Draft Screen
+              option(value='loading') Loading Screen
+              option(value='game') In-Game Screen
+      div.col-md-2
+        button(id="reloadButton",style='width:100%').btn.btn-primary
+          i.fa.fa-refresh
+          | Force Client Reload
+      div.col-md-2
+        button(id="resetButton",style='width:100%').btn.btn-danger
+          i.fa.fa-trash
+          | Reset
+
+
+    div.row
+      div.col-md-4
         div.control-group
           label(for='blueteamname',class='control-label') Blue Team Name
           div.controls
             input(data-group="text",type='text',id='blueteamname',name='blueteamname',placeholder='Potatoes',class='form-control')
       div.col-md-2
         div.control-group
-          label(for='swap',class='control-label') Swap
+          label(for='swap',class='control-label') &nbsp;
           div.controls
-            a(href="#",class="btn btn-success",id="swapButton")
+            button(id="swapButton",type='button',data-toggle='button',aria-pressed='false',auto-complete='false',style='width:100%').btn.btn-success
               i.fa.fa-random
-      div.col-md-5
+              | Swap Teams
+      div.col-md-2
+        div.control-group
+          label(for='swap',class='control-label') &nbsp;
+          div.controls
+            button(id='draftButton',type='button',data-toggle='button',aria-pressed='false',auto-complete='false',style='width:100%').btn
+              i(id='draftButtonIcon').fa.fa-toggle-off
+              | Draft Mode
+
+      div.col-md-4
         div.control-group
           label(for='redteamname',class='control-label') Red Team Name
           div.controls
             input(data-group="text",type='text',id='redteamname',name='redteamname',placeholder='Derpies',class='form-control')
 
+
     div.row
-      div.col-lg-12
-        a(href="#",class="btn btn-primary",id="reloadButton")
-          i.fa.fa-refresh
-          | Force Client Reload
-    hr    div.row
+      div.col-md-4
+        div(class='numRounds numRounds1 numRounds2').control-group
+          label(for='blueWins',class='control-label') Games Won
+          div.controls
+            select(id='blueWins',class="selectpicker", data-width="100%")
+              option(value='0') 0 Wins
+              option(value='1') 1 Win
+              option(value='2') 2 Wins
+
+      div.col-md-4
+        div.control-group
+          label(for='swap',class='control-label') Round(s)
+          div.controls
+            select(id='numRounds',class="selectpicker", data-width="100%")
+              option(value='0') 1 Round or Best of 1
+              option(value='1') 2 Rounds or Best of 3
+              option(value='2') 3 Rounds or Best of 5
+
+      div.col-md-4
+        div(class='numRounds numRounds1 numRounds2').control-group
+          label(for='redWins',class='control-label') Games Won
+          div.controls
+            select(id='redWins',class="selectpicker", data-width="100%")
+              option(value='0') 0 Wins
+              option(value='1') 1 Win
+              option(value='2') 2 Wins
+
+    hr
+
+    div.row
       div.col.col-sm-12
         h3 Render
         iframe(id='client',width='100%',frameborder=1,scrolling='no')

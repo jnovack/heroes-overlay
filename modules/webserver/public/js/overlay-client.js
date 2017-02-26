@@ -6,15 +6,60 @@ socket.on('setting', function(data) {
         if ($("#"+data.id).hasClass("text")) {
             $("#"+data.id).text(data.text);
         }
+
+        if ($("#"+data.id).hasClass("value")) {
+            $("#"+data.id).text(data.text);
+        }
+
+        // Trigger a change based off the changed data
+	    $("#"+data.id).trigger('changeData');
     }
 });
 
 
 socket.on('command', function(data){
-	if (data.action === "reload") {
-	    console.log("reloading...");
-	    location.reload();
+	switch (data.action) {
+		case "reload":
+		    console.log("reloading...");
+		    location.reload();
+		    break;
+		case "hide":
+			console.log("hiding overlay...");
+			$('#content').hide();
+		    break;
+		case "show":
+			console.log("showing overlay...");
+			$('#content').show();
+		    break;
+		case "draft":
+			console.log("setting 'draft' mode...");
+			$('.mode').removeClass('game').addClass('draft');
+			break;
+		case "game":
+			console.log("setting 'game' mode...");
+			$('.mode').removeClass('draft').addClass('game');
+			break;
 	}
+});
+
+$('#containerBackground').bind('changeData', function(e){
+    $('#wide-screen').removeClass().addClass($('#containerBackground').text());
+});
+
+$('#blueWins').bind('changeData', function(e){
+    $('.blueWins').css({ fill: "#6666FF" });
+    $('.blueWins' + $('#blueWins').text()).css({ fill: "#FFFFFF" });
+});
+
+$('#redWins').bind('changeData', function(e){
+    $('.redWins').css({ fill: "#FF6666" });
+    $('.redWins' + $('#redWins').text()).css({ fill: "#FFFFFF" });
+});
+
+
+$('#numRounds').bind('changeData', function(e){
+    $('.numRounds').hide();
+    $('.numRounds' + $('#numRounds').text()).show();
 });
 
 $(document).ready(function(){
