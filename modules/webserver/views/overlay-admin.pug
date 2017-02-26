@@ -9,6 +9,7 @@ block head
 block footer
   script.
     $('#obs-link').attr("href", url + "/" + room).html("<strong>" + url + "/" + room + "</strong>");
+    $('#client').attr("src", url + "/" + room);
   script(src='/js/functions.js')
   script(src="/js/overlay.js")
   script(src="/js/overlay-admin.js")
@@ -55,4 +56,14 @@ block content
         a(href="#",class="btn btn-primary",id="reloadButton")
           i.fa.fa-refresh
           | Force Client Reload
+    hr    div.row
+      div.col.col-sm-12
+        h3 Render
+        iframe(id='client',width='100%',frameborder=1,scrolling='no')
+
     hr
+
+    div.row
+      div.col.col-sm-12
+        h3 About
+        p #[strong heroes-overlay] is an #[a(href='https://github.com/jnovack/heroes-overlay',target='_blank') open-source project].
