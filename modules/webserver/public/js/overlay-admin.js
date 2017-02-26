@@ -46,12 +46,6 @@ socket.on('setting', function(data) {
             case "text":
                 $("#"+data.id).val(data.text);
                 break;
-            case "textarea":
-                $("#"+data.id).html(data.text);
-                break;
-            case "select-one":
-                    $('#'+data.id + ' option[value=' + data.text + ']').prop('selected', true);
-                break;
             default:
                 console.log($('#'+data.id).prop('type'));
         }
