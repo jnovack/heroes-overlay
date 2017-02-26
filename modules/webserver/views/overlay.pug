@@ -4,8 +4,17 @@ block head
   title Overlay
   link(href="/css/base.css", rel="stylesheet")
   style.
-    #blueteamname { position: absolute; left: 198px; top: 116px; width: 336px; height: 44px; font-weight: 700; text-shadow: 0 0 1em #333333; text-transform: uppercase; color: #ffffff; font-size: 2em; text-align: center; }
-    #redteamname { position: absolute; left: 1382px; top: 116px; width: 336px; height: 44px; font-weight: 700; text-shadow: 0 0 1em #333333; text-transform: uppercase; color: #ffffff; font-size: 2em; text-align: center; }
+    svg { position: absolute; width: 396px; height: 64px;}
+    .text { font-weight: 700; text-shadow: 0 0 1em #333333; text-transform: uppercase; color: #ffffff; font-size: 1.8em; text-align: center; }
+
+    #blueteam.draft { left: 278px; top: 116px; }
+    #redteam.draft { left: 1246px; top: 116px; }
+
+    #blueteam.game { left: 178px; top: 106px; }
+    #redteam.game { left: 1346px; top: 106px; }
+
+    #blueteamname { position: absolute; left: 198px; top: 116px; width: 336px; height: 44px; }
+    #redteamname { position: absolute; left: 1382px; top: 116px; width: 336px; height: 44px; }
 
 block footer
   script.
@@ -18,7 +27,22 @@ block footer
 block content
   div(id='wide-screen').transparent
     div(id='tvsafe')
-      div(id='blueteamname').text
-        | Potatoes
-      div(id='redteamname').text
-        | Derpies
+      div(id='content')
+        svg(id='blueteam',width='396',height='64').mode.game
+          polygon(points="0,0 354,0 390,64 36,64",fill="blue",stroke='black',stroke-width='0.05')
+          text(id='blueteamname',x=198,y=40,stroke="black",stroke-width='0.05',fill="white",text-anchor="middle").text
+            | Potatoes
+          g.numRounds.numRounds1
+            polygon(points="32,54 382,54 388,62 38,62",fill="#6666FF",stroke='black',stroke-width='0.05').blueWins.blueWins1
+          g.numRounds.numRounds2
+            polygon(points="32,54 196,54 202,62 38,62",fill="#6666FF",stroke='black',stroke-width='0.05').blueWins.blueWins1.blueWins2
+            polygon(points="198,54 382,54 388,62 204,62",fill="#6666FF",stroke='black',stroke-width='0.05').blueWins.blueWins2
+        svg(id='redteam',width='396',height='64').mode.game
+          polygon(points="36,0 390,0 354,64 0,64",fill="red",stroke='black',stroke-width='0.05')
+          text(id='redteamname',x=198,y=40,stroke="black",stroke-width='0.05',fill="white",text-anchor="middle").text
+            | Derpies
+          g.numRounds.numRounds1
+            polygon(points="8,54 356,54 352,62 2,62",fill="#FF6666",stroke='black',stroke-width='0.05').redWins.redWins1
+          g.numRounds.numRounds2
+            polygon(points="8,54 180,54 176,62 2,62",fill="#FF6666",stroke='black',stroke-width='0.05').redWins.redWins2
+            polygon(points="182,54 356,54 352,62 177,62",fill="#FF6666",stroke='black',stroke-width='0.05').redWins.redWins1.redWins2
