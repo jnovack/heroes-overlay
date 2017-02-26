@@ -4,7 +4,10 @@
 
 #tv-safe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; }
 
-div.observer { background: url('/img/observer.png'); }
+#wide-screen.transparent { background: none; background-color: rgba(0,0,0,0); }
+#wide-screen.draft { background: url('/img/draft.png'); }
+#wide-screen.loading { background: url('/img/loading.png'); }
+#wide-screen.game { background: url('/img/game.png'); }
 
 div.title {margin-top: 16px; font-weight: 700; text-shadow: 0 0 1em #009cff; text-transform: uppercase; font-color: #fff; font-size: 4em; height: 80px;}
 
