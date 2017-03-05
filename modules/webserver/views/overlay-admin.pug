@@ -35,31 +35,6 @@ block content
 
 
     div.row
-      div.col-md-2
-        button(id='visibilityButton',type='button',data-toggle='button',aria-pressed='true',auto-complete='false',style='width:100%').btn.btn-warning.active
-          i(id='visibilityButtonIcon').fa.fa-toggle-on
-          | Visibility
-      div.col-md-2
-      div.col-md-2
-      div.col-md-2
-        div.control-group
-          div.controls
-            select(id='containerBackground',class="selectpicker", data-width="100%")
-              option(value='transparent') Transparent
-              option(value='draft') Draft Screen
-              option(value='loading') Loading Screen
-              option(value='game') In-Game Screen
-      div.col-md-2
-        button(id="reloadButton",style='width:100%').btn.btn-primary
-          i.fa.fa-refresh
-          | Force Client Reload
-      div.col-md-2
-        button(id="resetButton",style='width:100%').btn.btn-danger
-          i.fa.fa-trash
-          | Reset
-
-
-    div.row
       div.col-md-4
         div.control-group
           label(for='blueteamname',class='control-label') Blue Team Name
@@ -121,6 +96,34 @@ block content
       div.col.col-sm-12
         h3 Render
         iframe(id='client',width='100%',frameborder=1,scrolling='no')
+
+    hr
+
+
+
+    div.row
+      div.col-md-2
+        button(id='visibilityButton',type='button',data-toggle='button',aria-pressed='true',auto-complete='false',style='width:100%').btn.btn-warning.active
+          i(id='visibilityButtonIcon').fa.fa-toggle-on
+          | Visibility
+      div.col-md-2
+      div.col-md-2
+      div.col-md-2
+        div.control-group
+          div.controls
+            select(id='containerBackground',class="selectpicker", data-width="100%")
+              option(value='transparent') Transparent
+              option(value='draft') Draft Screen
+              option(value='loading') Loading Screen
+              option(value='game') In-Game Screen
+      div.col-md-2
+        button(id="reloadButton",style='width:100%').btn.btn-primary
+          i.fa.fa-refresh
+          | Force Client Reload
+      div.col-md-2
+        button(id="resetButton",style='width:100%').btn.btn-danger
+          i.fa.fa-trash
+          | Reset
 
     hr
 
