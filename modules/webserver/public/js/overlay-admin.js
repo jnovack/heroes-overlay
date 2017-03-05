@@ -53,6 +53,8 @@ $("#resetButton").click(function() {
     $('.numRounds').hide();
     send({ event: 'setting', data: { id: 'blueWins', text: 0 } });
     send({ event: 'setting', data: { id: 'redWins', text: 0 } });
+
+    $('#containerBackground').selectpicker('val', 'transparent');
     $(document.activeElement).blur();
 });
 
