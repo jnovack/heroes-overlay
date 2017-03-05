@@ -133,7 +133,8 @@ i.fa { margin-right: 0.3em; }
 }
 
 
-@media screen and (min-width: 960px) and (max-width: 1279px), screen and (min-height: 560px) and (max-height: 719px){
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+    /* screen and (min-height: 560px) and (max-height: 719px) */
     #wide-screen {
         transform: scale(0.5);
         -webkit-transform: scale(0.5);
@@ -144,7 +145,8 @@ i.fa { margin-right: 0.3em; }
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 959px), screen and (min-height: 450px) and (max-height: 559px){
+@media screen and (min-width: 800px) and (max-width: 959px) {
+    /* screen and (min-height: 450px) and (max-height: 559px) */
     #wide-screen {
         transform: scale(0.417);
         -webkit-transform: scale(0.417);
@@ -155,7 +157,8 @@ i.fa { margin-right: 0.3em; }
     }
 }
 
-@media screen and (min-width: 640px) and (max-width: 799px), screen and (min-height: 360px) and (max-height: 499px){
+@media screen and (min-width: 640px) and (max-width: 799px) {
+    /* screen and (min-height: 360px) and (max-height: 499px) */
     #wide-screen {
         transform: scale(0.333333333);
         -webkit-transform: scale(0.333333333);
@@ -166,7 +169,8 @@ i.fa { margin-right: 0.3em; }
     }
 }
 
-@media screen and (min-width: 1px) and (max-width: 639px), screen and (min-height: 1px) and (max-height: 359px){
+@media screen and (min-width: 1px) and (max-width: 639px) {
+    /* screen and (min-height: 1px) and (max-height: 359px) */
     #wide-screen {
         transform: scale(0.25);
         -webkit-transform: scale(0.25);
