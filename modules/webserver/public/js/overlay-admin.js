@@ -29,6 +29,18 @@ $("#draftButton").click(function() {
     $(document.activeElement).blur();
 });
 
+$("#chromakeyButton").click(function() {
+    if ($('#chromakeyButton').hasClass('active')) {
+        $('#chromakeyButton').removeClass('btn-success');
+        $('#chromakeyButtonIcon').removeClass('fa-toggle-on').addClass('fa-toggle-off');
+        send({ event: 'command', data: { action: 'chroma-off' }});
+    } else {
+        $('#chromakeyButton').addClass('btn-success');
+        $('#chromakeyButtonIcon').removeClass('fa-toggle-off').addClass('fa-toggle-on');
+        send({ event: 'command', data: { action: 'chroma-on' }});
+    }
+    $(document.activeElement).blur();
+});
 
 $("#visibilityButton").click(function() {
     if ($('#visibilityButton').hasClass('active')) {

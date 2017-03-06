@@ -39,6 +39,14 @@ socket.on('command', function(data){
 			console.log("setting 'game' mode...");
 			$('.mode').removeClass('draft').addClass('game');
 			break;
+        case "chroma-off":
+            console.log("setting 'chroma' mode to 'off'...");
+            $('#wide-screen').removeClass('chromakey').addClass('transparent');
+            break;
+        case "chroma-on":
+            console.log("setting 'chroma' mode to 'on'...");
+            $('#wide-screen').removeClass('transparent').addClass('chromakey');
+            break;
 	}
 });
 

@@ -5,6 +5,7 @@
 #tv-safe { width: 1600px; height: 900px; overflow: hidden; margin-top: 90px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; }
 
 #wide-screen.transparent { background: none; background-color: rgba(0,0,0,0); }
+#wide-screen.chromakey { background: none; background-color: rgba(0,255,0,1); }
 #wide-screen.draft { background: url('/img/draft.png'); }
 #wide-screen.loading { background: url('/img/loading.png'); }
 #wide-screen.game { background: url('/img/game.png'); }
